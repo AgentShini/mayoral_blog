@@ -14,9 +14,7 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::middleware([
     'auth:sanctum',
@@ -28,10 +26,12 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::get('/index',[HomeController::class,'index']);
+Route::get('/',[HomeController::class,'index']);
+Route::get('/index',[HomeController::class,'home']);
 Route::get('/blogs',[HomeController::class,'blogs']);
 Route::get('/dashboard',[HomeController::class,'dashboard']);
 Route::get('/contact',[HomeController::class,'contact']);
 Route::get('blog/{id}',[HomeController::class,'blog']);
 Route::get('like_post/{id}',[HomeController::class,'like']);
 Route::get('comment_post/{id}',[HomeController::class,'comment']);
+Route::get('/logout',[HomeController::class,'logout']);

@@ -9,10 +9,9 @@
     <meta name="author" content="Eightsoft">
     <meta name = "description" content = "All about the AI"/>
 
-    <title>Home - Eightsoft blog</title>
+    <title>Home - Mayoral Blog</title>
 
     <!-- Bootstrap -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{asset('/home/assets/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('/home/assets/css/style.css')}}" rel="stylesheet">
 
