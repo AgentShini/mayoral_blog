@@ -13,7 +13,8 @@
 
     <!-- Bootstrap -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="{{asset('/home/assets/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('/home/assets/css/style.css')}}" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -70,53 +71,9 @@
 
                 </div></div> -->
 
-                <div class="col-sm-6 col-md-4">     <div class="thumbnail">
+               @include('home.content')
 
-                    <img src="assets/img/eclass.png" alt="Title">
-
-                    <div class="caption">
-                        <h3>Title</h3>
-                        <p> Description</p>
-                        <p><a href="#" class="btn btn-primary" role="button">Like</a> 
-                            <a href="#" class="btn btn-primary" role="button">Comment</a>
-                            <a href="#" class="btn btn-primary" role="button">Read more</a>
-                        </p>
-                    </div>
-
-                </div></div>
-
-                <div class="col-sm-6 col-md-4">     <div class="thumbnail">
-
-                    <img src="assets/img/eclass.png" alt="Title">
-
-                    <div class="caption">
-                        <h3>Title</h3>
-                        <p>Description</p>
-                        <p>
-                            <a href="#" class="btn btn-primary" role="button">Like</a> 
-                            <a href="#" class="btn btn-primary" role="button">Comment</a>
-                            <a href="#" class="btn btn-primary" role="button">Read more</a>
-                            <!-- <a href="#"> <img class = "icon" src="assets/img/clap.png" alt="like"> </a> -->
-                        </p>
-                    </div>
-
-                </div> </div>
-
-                <div class="col-sm-6 col-md-4">     <div class="thumbnail">
-
-                    <img src="assets/img/eclass.png" alt="Title">
-
-                    <div class="caption">
-                        <h3>Title</h3>
-                        <p> Description</p>
-                        <p>
-                            <a href="#" class="btn btn-primary" role="button">Like</a> 
-                            <a href="#" class="btn btn-primary" role="button">Comment</a>
-                            <a href="#" class="btn btn-primary" role="button">Read more</a>
-                        </p>
-                    </div>
-
-                </div></div>
+               
 
             </div></div>
             
@@ -134,7 +91,7 @@
                             expand our understanding of data science. While we allow
                              authors to publish articles,
                               we do not endorse each author’s contribution.</p>
-                        <a class="btn btn-primary btn-lg" href="blog.html" role="button">Learn more</a>
+                        <a class="btn btn-primary btn-lg" href="{{url('/blogs')}}" role="button">Learn more</a>
                       </div>
                 </div>
 
@@ -154,7 +111,7 @@
                                     expand our understanding of data science. While we allow
                                      authors to publish articles,
                                       we do not endorse each author’s contribution.</p>
-                                <a class="btn btn-primary btn-lg" href="dashboard.html" role="button">Learn more</a>
+                                <a class="btn btn-primary btn-lg" href="{{url('/dashboard')}}" role="button">Learn more</a>
                               </div>
                         </div>
                     </div>
@@ -170,7 +127,7 @@
                                     expand our understanding of data science. While we allow
                                      authors to publish articles,
                                       we do not endorse each author’s contribution.</p>
-                                <a class="btn btn-primary btn-lg" href="contact.html" role="button">Learn more</a>
+                                <a class="btn btn-primary btn-lg" href="{{url('/contact')}}" role="button">Learn more</a>
                               </div>
                         </div>
                     </div>
@@ -182,7 +139,7 @@
 
         
 
-        <!-- <div class="container">    <div class="panel panel-default">
+         <div class="container">    <div class="panel panel-default">
 
                 <div class="panel-heading">Popular posts</div>
               
@@ -199,23 +156,23 @@
                     <tbody>
                         <tr>
                             <td class="col-lg-1 col-md-1 col-xs-2">
-                                <img class="img-responsive" src="assets/img/eclass.png" alt="Title">
+                                <img class="img-responsive" src="{{asset('home/assets/img/eclass.png')}}" alt="Title">
                             </td>
-                            <td class="vert-align"><a href="">1</a></td>
+                            <td class="vert-align"><a href="{{url('/blog/1')}}">1</a></td>
                             <td class="text-center vert-align"><span class="badge">10.0</span></td>
                         </tr>  
                         <tr>
                             <td class="col-lg-1 col-md-1 col-xs-2">
-                                <img class="img-responsive" src="assets/img/eclass.png" alt="Title">
+                                <img class="img-responsive" src="{{asset('home/assets/img/eclass.png')}}" alt="Title">
                             </td>
-                            <td class="vert-align"><a href="">2</a></td>
+                            <td class="vert-align"><a href="{{url('/blog/2')}}">2</a></td>
                             <td class="text-center vert-align"><span class="badge">10.0</span></td>
                         </tr> 
                         <tr>
                             <td class="col-lg-1 col-md-1 col-xs-2">
-                                <img class="img-responsive" src="assets/img/eclass.png" alt="Title">
+                                <img class="img-responsive" src="{{asset('home/assets/img/eclass.png')}}" alt="Title">
                             </td>
-                            <td class="vert-align"><a href="">3</a></td>
+                            <td class="vert-align"><a href="{{url('/blog/3')}}">3</a></td>
                             <td class="text-center vert-align"><span class="badge">8.0</span></td>
                         </tr>  
                     </tbody>
@@ -223,23 +180,15 @@
         
                   </table>
 
-        </div>     </div>  -->
+        </div>    
+     </div> 
         
 
         <div class="clear"></div>
     </div>
 
     <!-- Footer -->
-    <footer>
-        <div class="container-fluid">
-            <p class = "text-center"><a href="#">Input my github or some shii</a></p>
-        </div>
-    </footer>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="assets/js/bootstrap.min.js"></script>
+  @include('home.footer')
 </body>
 
 </html>

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,11 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/index',[HomeController::class,'index']);
+Route::get('/blogs',[HomeController::class,'blogs']);
+Route::get('/dashboard',[HomeController::class,'dashboard']);
+Route::get('/contact',[HomeController::class,'contact']);
+Route::get('blog/{id}',[HomeController::class,'blog']);
+Route::get('like_post/{id}',[HomeController::class,'like']);
+Route::get('comment_post/{id}',[HomeController::class,'comment']);
