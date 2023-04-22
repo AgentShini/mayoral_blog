@@ -50,7 +50,7 @@ class HomeController extends Controller
     }
     public function blog($id){
     $post = post::find($id);
-     return view('home.blog');
+     return view('home.blog',compact('post'));
     }
     public function like($id){
         return ("POST LIKED");
