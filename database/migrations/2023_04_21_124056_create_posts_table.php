@@ -22,8 +22,8 @@ return new class extends Migration
             $table->longText('post');
             $table->string('image');
             $table->string('user_id');
-            $table->integer('likes');
-            $table->string('comment')->nullable();
+            $table->integer('likes')->default(0);
+            $table->integer('comment')->default(0);
             $table->timestamps();
         });
     }

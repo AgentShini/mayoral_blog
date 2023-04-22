@@ -11,7 +11,8 @@ class HomeController extends Controller
 {
     public function index(){
         $post = post::paginate(3);
-        return view('home.index',compact('post'));
+        $popular = post::orderby('likes','asc')->get();
+        return view('home.index',compact('post','popular'));
         /////TO DO POPULAR POSTS BASED ON LIKES
     }
     public function home(){

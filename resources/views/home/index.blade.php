@@ -69,16 +69,16 @@
                     </div>
 
                 </div></div> -->
-                @foreach($post as $post)
+                @foreach($popular as $posts)
                 <div class="col-sm-6 col-md-4">     <div class="thumbnail">
 
-                    <img src="/product{{$post->image}}" alt="Title">
+                    <img src="/product/{{$posts->image}}" alt="Title">
                 
                     <div class="caption">
-                        <h3>{{$post->title}}</h3>
-                        <p>{{$post->description}}</p>
-                        <p><a href="{{url('/like_post',$post->id)}}" class="btn btn-primary" role="button">Like</a> 
-                            <a href="{{url('/blog',$post->id)}}" class="btn btn-primary" role="button">Read more</a>
+                        <h3>{{$posts->title}}</h3>
+                        <p>{{$posts->description}}</p>
+                        <p><a href="{{url('/like_post',$posts->id)}}" class="btn btn-primary" role="button">Like</a> 
+                            <a href="{{url('/blog',$posts->id)}}" class="btn btn-primary" role="button">Read more</a>
                         </p>
                     </div>
                 
@@ -168,13 +168,13 @@
                     </thead>
 
                     <tbody>
-                        @foreach($post as $post)
+                        @foreach($post as $posts)
                         <tr>
                             <td class="col-lg-1 col-md-1 col-xs-2">
-                                <img class="img-responsive" src="/product/{{$post->image}}')}}" alt="Title">
+                                <img class="img-responsive" src="/product/{{$posts->image}}" alt="Title">
                             </td>
-                            <td class="vert-align"><a href="{{url('/blog',$post->id)}}">{{$post->title}}</a></td>
-                            <td class="text-center vert-align"><span class="badge">{{$post->likes}}</span></td>
+                            <td class="vert-align"><a href="{{url('/blog',$posts->id)}}">{{$posts->title}}</a></td>
+                            <td class="text-center vert-align"><span class="badge">{{$posts->likes}}</span></td>
                         </tr>  
                         @endforeach
                     </tbody>
@@ -194,3 +194,6 @@
 </body>
 
 </html>
+
+
+
