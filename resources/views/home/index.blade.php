@@ -69,7 +69,7 @@
                     </div>
 
                 </div></div> -->
-                @foreach($popular as $posts)
+                @foreach($post as $posts)
                 <div class="col-sm-6 col-md-4">     <div class="thumbnail">
 
                     <img src="/product/{{$posts->image}}" alt="Title">
@@ -121,10 +121,9 @@
                             <div class="jumbotron ">
                                 <h6>DASHBOARD</h6>
                                 <h2>Discover</h2>
-                                <p>We provide a platform for thousands of people to exchange ideas and to 
-                                    expand our understanding of data science. While we allow
-                                     authors to publish articles,
-                                      we do not endorse each author’s contribution.</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto repellendus ipsam eos magni aut, quos labore nemo unde veniam tenetur! Deserunt sint similique labore ipsum pariatur possimus. Nam, nesciunt asperiores?
+                                Quod quisquam tenetur cumque explicabo quaerat vitae, iure minus libero? Suscipit temporibus nostrum earum eum perspiciatis nemo illo quidem maxime assumenda dicta dolores dolorem vel accusantium, voluptas rem beatae nihil!
+                                Atque et quam, voluptates assumenda beatae, expedita nobis qui fuga laborum nihil nesciunt obcaecati quibusdam sunt rerum aliquam? Ratione unde hic explicabo assumenda accusamus itaque voluptate, recusandae sed ab expedita.</p>
                                 <a class="btn btn-primary btn-lg" href="{{url('/dashboard')}}" role="button">Learn more</a>
                               </div>
                         </div>
@@ -137,10 +136,9 @@
                             <div class="jumbotron ">
                                 <h6>CONTACTS</h6>
                                 <h2>Contact us</h2>
-                                <p>We provide a platform for thousands of people to exchange ideas and to 
-                                    expand our understanding of data science. While we allow
-                                     authors to publish articles,
-                                      we do not endorse each author’s contribution.</p>
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga illo voluptatum autem quibusdam maiores, inventore quidem asperiores non, quas ab vel accusamus atque quo sequi similique iusto iste. Fugiat, doloribus.
+                                Quis autem nihil, sapiente voluptate explicabo ratione, inventore omnis quae tempora voluptatibus, aliquid delectus! Dignissimos, quod nesciunt illo libero quisquam iusto architecto voluptatum at nam id, totam, voluptas quas eos.
+                                Quia, laboriosam eveniet, ducimus fugiat numquam illum, libero minus saepe et exercitationem veritatis veniam quasi quam deserunt facere velit cum iure qui? Asperiores corrupti doloremque quod minima harum illo. Eligendi.</p>
                                 <a class="btn btn-primary btn-lg" href="{{url('/contact')}}" role="button">Learn more</a>
                               </div>
                         </div>
@@ -155,7 +153,7 @@
 
          <div class="container">    <div class="panel panel-default">
 
-                <div class="panel-heading">Popular posts</div>
+                <div class="panel-heading">Posts</div>
               
                 <table class="table table-striped">
 
@@ -168,19 +166,20 @@
                     </thead>
 
                     <tbody>
-                        @foreach($post as $posts)
+                        @foreach($popular as $populars)
                         <tr>
                             <td class="col-lg-1 col-md-1 col-xs-2">
-                                <img class="img-responsive" src="/product/{{$posts->image}}" alt="Title">
+                                <img class="img-responsive" src="/product/{{$populars->image}}" alt="Title">
                             </td>
-                            <td class="vert-align"><a href="{{url('/blog',$posts->id)}}">{{$posts->title}}</a></td>
-                            <td class="text-center vert-align"><span class="badge">{{$posts->likes}}</span></td>
+                            <td class="vert-align"><a href="{{url('/blog',$populars->id)}}">{{$populars->title}}</a></td>
+                            <td class="text-center vert-align"><span class="badge">{{$populars->likes}}</span></td>
                         </tr>  
                         @endforeach
                     </tbody>
         
         
                   </table>
+                  {!!$popular->links('pagination::bootstrap-5')!!}  
 
         </div>    
      </div> 

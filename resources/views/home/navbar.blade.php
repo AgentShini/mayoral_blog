@@ -9,7 +9,7 @@
                 <div class="col-lg-12"><div class="container"><div class="row">
 
                         <h1><a href="{{url('/index')}}">Mayoral Blog</a></h1>
-                        <p><a href="javascript:void()">All about AI</a></p>
+                        <p><a href="javascript:void()">All about Blogging</a></p>
 
                 </div></div></div>
                 

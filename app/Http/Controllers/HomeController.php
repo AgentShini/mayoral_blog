@@ -10,19 +10,20 @@ use RealRashid\SweetAlert\Facades\Alert;
 class HomeController extends Controller
 {
     public function index(){
-        $post = post::paginate(3);
-        $popular = post::orderby('likes','asc')->get();
+        $post = post::orderBy('created_at','desc')->limit(3)->get();
+        $popular = post::paginate(3);
         return view('home.index',compact('post','popular'));
         /////TO DO POPULAR POSTS BASED ON LIKES
     }
     public function home(){
         if(Auth::id()){
             $name = Auth::user()->name;
-            $post = post::paginate(3);
-        }else{
+            $post = post::orderBy('created_at','desc')->limit(3)->get();
+            $popular = post::paginate(3);
+            }else{
             return redirect('/');
         }
-        return view('home.index',compact('name','post'));
+        return view('home.index',compact('name','post','popular'));
     }
     public function blogs(){
         if(Auth::id()){
