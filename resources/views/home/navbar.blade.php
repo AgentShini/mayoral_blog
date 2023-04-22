@@ -28,12 +28,15 @@
             <div class="col-lg-8">
                 <div id="navbarCollapse"class="collapse navbar-collapse">
                     <ul class="nav nav-pills nav-justified">
+                        @if(Route::has('login'))
                         <li role="presentation" class="active"><a href="{{url('/index')}}">Home</a></li>
                         <li role="presentation"><a href="{{url('/blogs')}}">Blog</a></li>
                         <li role="presentation"><a href="{{url('/dashboard')}}">Dashboard</a></li>
                         <li role="presentation"><a href="{{url('/contact')}}">Contacts</a></li>
+                        @else
                         <li role="presentation"><a href="{{url('/login')}}">Login</a></li>
                         <li role="presentation"><a href="{{url('/register')}}">Register</a></li>
+                        @endif
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

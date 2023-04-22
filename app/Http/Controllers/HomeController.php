@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class HomeController extends Controller
 {
@@ -23,7 +25,12 @@ class HomeController extends Controller
     }
 
     public function dashboard(){
-     return view('home.dashboard');
+        if(Auth::id()){
+            $name = Auth::user()->name;
+            $id = Auth::id();
+        }
+     $post = post::all()->where('user_id','=',$id);
+     return view('home.dashboard',compact('name'));
     }
     public function contact(){
         return view('home.contact');
@@ -45,10 +52,31 @@ class HomeController extends Controller
        }
 
        public function create_post(){
-        return view('home.create_post');
+        if(Auth::id()){
+            $name = Auth::user()->name;
+        }
+        return view('home.create_post',compact('name'));
        }
 
        public function post_created(Request $req){
-
+        if(Auth::id()){
+        $post = new post;
+        $user = Auth::user()->name;
+        $post->username = $user;
+        $post->title = $req->title;
+        $post->description = $req->description;
+        $post->category = $req->category;
+        $post->post = $req->post;
+        $post->user_id = Auth::id();
+        $image = $req->image;
+        $imagename = time().'.'.$image->getClientOriginalExtension();
+        $req->image->move('product',$imagename);
+        $post->image = $imagename;
+        $post->save();
+        Alert::success('Post Created','Post was Created Successfully');
+        return redirect()->back();
+       }else{
+        return redirect('/register');
        }
+    }
 }

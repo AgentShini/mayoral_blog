@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,12 +25,12 @@
 </head>
 
 <body>
-
+@include('sweetalert::alert')
 
     <!-- Navigation bar (header) -->
     <div class="container-fluid">    <div class="row">
 
-      @include('home.navbar');
+      @include('home.navbar')
 
     </div></div>
 
@@ -38,11 +39,11 @@
         <div class="container"><div class="row">
 
             <div class="col-lg-12 bar">
-
                 <h2>Create post</h2>
                 <hr>
 
                 <form action="{{url('/post_created')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="form-group">
                         <input type="text"  name = "title"  placeholder="Title" class="form-control input-lg">
                     </div>
@@ -66,8 +67,6 @@
                     <div class="form-group">
                       <input type="file" class="form-control-file btn btn-primary" name = "image" id="image">
                     </div>
-
-
                     <button class = "btn-lg btn-warning pull-right">Submit</button>
                 </form>
 
@@ -80,4 +79,4 @@
         <div class="clear"></div>
     </div>
 
- @include('home.footer');
+ @include('home.footer')
