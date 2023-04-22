@@ -43,4 +43,12 @@ class HomeController extends Controller
         Session::flush();
         return redirect('/');
        }
+
+       public function create_post(){
+        return view('home.create_post');
+       }
+
+       public function post_created(Request $req){
+
+       }
 }

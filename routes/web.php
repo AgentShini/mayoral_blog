@@ -35,3 +35,5 @@ Route::get('blog/{id}',[HomeController::class,'blog']);
 Route::get('like_post/{id}',[HomeController::class,'like']);
 Route::get('comment_post/{id}',[HomeController::class,'comment']);
 Route::get('/logout',[HomeController::class,'logout']);
+Route::get('/create_post',[HomeController::class,'create_post']);
+Route::post('/post_created',[HomeController::class,'post_created']);
