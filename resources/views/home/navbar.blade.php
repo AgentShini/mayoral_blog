@@ -29,27 +29,32 @@
                 <div id="navbarCollapse"class="collapse navbar-collapse">
                     <ul class="nav nav-pills nav-justified">
                         @if(Route::has('login'))
+                        @auth
                         <li role="presentation" class="active"><a href="{{url('/index')}}">Home</a></li>
                         <li role="presentation"><a href="{{url('/blogs')}}">Blog</a></li>
                         <li role="presentation"><a href="{{url('/dashboard')}}">Dashboard</a></li>
                         <li role="presentation"><a href="{{url('/contact')}}">Contacts</a></li>
                         @else
+                        <li role="presentation" class="active"><a href="{{url('/index')}}">Home</a></li>
+                        <li role="presentation"><a href="{{url('/blogs')}}">Blog</a></li>
+                        <li role="presentation"><a href="{{url('/contact')}}">Contacts</a></li>
                         <li role="presentation"><a href="{{url('/login')}}">Login</a></li>
                         <li role="presentation"><a href="{{url('/register')}}">Register</a></li>
+                        @endauth
                         @endif
 
+                        @if(Route::has('login'))
+                        @auth
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              @if(Route::has('login'))
-                              @auth
                               {{$name}}
-                              @endauth
-                              @endif
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                               <a class="dropdown-item" href="{{url('/logout')}}">Log out</a>
                             </div>
                         </li>
+                        @endauth
+                        @endif
                       </ul>
                 </div>
             </div>

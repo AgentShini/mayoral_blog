@@ -10,11 +10,13 @@
     <meta name="author" content="Eightsoft">
     <meta name = "description" content = "All about the AI"/>
 
-    <title>Create post - Eightsoft blog</title>
+    <title>Edit post - Mayoral Blog</title>
 
     <!-- Bootstrap -->
     <link href="{{asset('/home/assets/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('/home/assets/css/style.css')}}" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,19 +41,19 @@
         <div class="container"><div class="row">
 
             <div class="col-lg-12 bar">
-                <h2>Create post</h2>
+                <h2>Edit post</h2>
                 <hr>
 
-                <form action="{{url('/post_created')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{url('/edit_post',$post->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <input type="text"  name = "title"  placeholder="Title" class="form-control input-lg">
+                        <input type="text"  name = "title"  placeholder="Title" class="form-control input-lg" value = "{{$post->title}}">
                     </div>
                     <div class="form-group">
-                        <input type="text"  name = "description"  placeholder="Short description" class="form-control input-lg">
+                        <input type="text"  name = "description"  placeholder="Short description" class="form-control input-lg" value = "{{$post->description}}">
                     </div>
                     <div class="form-group">
-                        <input type="text" name = "category" placeholder="Category" class="form-control input-lg">
+                        <input type="text" name = "category" placeholder="Category" class="form-control input-lg" value = "{{$post->category}}">
                     </div>
 
                     <div class="form-group">
@@ -61,13 +63,13 @@
                     <!-- <button class = "btn-lg btn-secondary">Upload image</button> -->
 
                     <label for="image" class="btn btn-primary">
-                        Upload Image
+                       Change Image
                     </label>
 
                     <div class="form-group">
                       <input type="file" class="form-control-file btn btn-primary" name = "image" id="image">
                     </div>
-                    <button class = "btn-lg btn-warning pull-right">Create Post</button>
+                    <button class = "btn-lg btn-warning pull-right">Edit Post</button>
                 </form>
 
                 <div class="margin-8 clear"></div>
@@ -78,5 +80,4 @@
         </div></div>
         <div class="clear"></div>
     </div>
-
  @include('home.footer')

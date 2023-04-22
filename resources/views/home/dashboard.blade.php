@@ -14,6 +14,8 @@
     <!-- Bootstrap -->
     <link href="{{asset('/home/assets/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('/home/assets/css/style.css')}}" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -25,6 +27,7 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
 
     
     <!-- Navigation bar (header) -->
@@ -40,7 +43,7 @@
 
                 <a  href = "{{url('/create_post')}}"> <button class = "btn-lg btn-secondary longButton" >Create new post</button></a>
                 
-                        <div class="panel-heading "> <p class = "text-center"> Your posts</p> </div>
+                        <div class="panel-heading "> <p class = "text-center"> Your Posts</p> </div>
 
                         <table class="table table-striped">
                         
@@ -50,17 +53,17 @@
                                     <th>Title</th>
                                 </tr>
                             </thead>
-                        
+                        @foreach($post as $post)
                             <tbody>
                                 <tr>
                                     <td class="col-lg-1 col-md-1 col-xs-2">
                                     </td>
-                                    <td class="vert-align"><a href="">1</a></td>
-                                    <td class="text-center vert-align"><button class = "btn-lg btn-secondary">edit</button></td>
-                                    <td class="text-center vert-align"><button class = "btn-lg btn-secondary">delete</button></td>
+                                    <td class="vert-align"><a href="{{url('blog',$post->id)}}">{{$post->title}}</a></td>
+                                    <td class="text-center vert-align"><a class = "btn btn-warning" href="{{url('edit',$post->id)}}">Edit</a></td>
+                                    <td class="text-center vert-align"><a onclick="confirmation(event)" class = "btn btn-danger" href="{{url('delete',$post->id)}}">Delete</a></td>
                                 </tr>  
                             </tbody>
-                        
+                            @endforeach
                         
                           </table>
                       
@@ -71,6 +74,27 @@
         </div></div>
         <div class="clear"></div>
     </div>
+    <script>
+        
+function confirmation(event){
+event.preventDefault();
+var urlToRedirect = event.currentTarget.getAttribute('href');
+console.log(urlToRedirect)
+new swal({
+title:"Are you sure ?",
+text:"Post will be deleted",
+icon:"warning",
+buttons:true,
+dangerMode:true,
+})
+.then((willCancel)=>{
+if(willCancel){
+
+window.location.href = urlToRedirect;
+}
+});
+} 
+    </script>
 
     <!-- Footer -->
     @include('home.footer')
