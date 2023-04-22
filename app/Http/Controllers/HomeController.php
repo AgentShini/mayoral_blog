@@ -21,8 +21,19 @@ class HomeController extends Controller
         return view('home.index',compact('name'));
     }
     public function blogs(){
-        return view('home.blogs');
+        if(Auth::id()){
+            $name = Auth::user()->name;
+            $post = post::paginate(5);
+        }else{
+            return redirect('/register');
+           }
+        return view('home.blogs',compact('name','post'));
     }
+    public function search(Request $req){
+        $search = $req->search;
+        $post = post::where('title','LIKE',"%$search%")->orWhere('username','LIKE',"%$search%")->orWhere('category','LIKE',"%$search%")->paginate();
+        return view('home.blogs',compact('post'));
+    } 
 
     public function dashboard(){
         if(Auth::id()){
@@ -38,6 +49,7 @@ class HomeController extends Controller
         return view('home.contact');
     }
     public function blog($id){
+    $post = post::find($id);
      return view('home.blog');
     }
     public function like($id){

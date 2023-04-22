@@ -40,3 +40,4 @@ Route::post('/post_created',[HomeController::class,'post_created']);
 Route::get('delete/{id}',[HomeController::class,'delete']);
 Route::get('edit/{id}',[HomeController::class,'edit']);
 Route::post('edit_post/{id}',[HomeController::class,'edit_post']);
+Route::get('search_post',[HomeController::class,'search']);
