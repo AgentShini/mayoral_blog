@@ -36,7 +36,6 @@
                         @else
                         <li role="presentation" class="active"><a href="{{url('/index')}}">Home</a></li>
                         <li role="presentation"><a href="{{url('/blogs')}}">Blog</a></li>
-                        <li role="presentation"><a href="{{url('/contact')}}">Contacts</a></li>
                         <li role="presentation"><a href="{{url('/login')}}">Login</a></li>
                         <li role="presentation"><a href="{{url('/register')}}">Register</a></li>
                         @endauth

@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('commenter');
             $table->string('comment');
             $table->string('post_id');
-            $table->string('comment_id');
             $table->timestamps();
         });
     }

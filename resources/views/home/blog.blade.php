@@ -67,9 +67,12 @@
             <div class="margin-8"></div>
 
             <h2>Comments</h2>
+            @if(Route::has('login'))
+            @auth
             <hr>
 
-            <form action="">
+            <form action="{{url('add_comment',$post->id)}}" method="POST">
+                @csrf
                 <div class="form-group">
                     <input type="hidden" name = "commenter" value="{{Auth::user()->name}}">
                 </div>
@@ -80,22 +83,20 @@
                     <button class = "btn-lg btn-warning">Submit</button>
                 </div>
             </form>
+            @endauth
+            @endif
 
             <hr>
-
+            @foreach($comment as $comment)
             <div class="panel panel-info">
-                <div class="panel-heading"><i class= "glyphicon glyphicon-user"></i><span>Сергей</span></div>
+                <div class="panel-heading"><i class= "glyphicon glyphicon-user"></i><span>{{$comment->commenter}}</span></div>
                 <div class="panel-body">
-                  Чотка
+                 {{$comment->comment}}
                 </div>
             </div>
+            @endforeach
 
-            <div class="panel panel-info">
-                <div class="panel-heading"><i class= "glyphicon glyphicon-user"></i><span>Дмитрий</span></div>
-                <div class="panel-body">
-                  Ё-маё, в натуре, чотка
-                </div>
-            </div>
+            
 
 
         </div></div>
@@ -108,3 +109,4 @@
 </body>
 
 </html>
+

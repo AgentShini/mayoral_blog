@@ -44,12 +44,12 @@
             <div class="col-lg-12 bar">
 
                 @foreach($post as $posts)
-                <div>
+                <div style = "padding-top: 10px;padding-bottom: 10px">
 
                     <div class="col-sm-2 col-md-12 col-lg-12"></div>
 
                 <div class="col-lg-3 col-md-3 col-sm-8 img-bar border-right">
-                    <img class="img-responsive" src="{{url('home/assets/img/notalone.png')}}" alt="eclass">
+                    <img style="width:155px" class="img-responsive" src="product/{{$posts->image}}" alt="eclass">
                 </div>
 
                 <div class="clear-both-sm"></div><div class="col-sm-2"></div>

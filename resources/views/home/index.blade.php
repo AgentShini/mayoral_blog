@@ -77,7 +77,13 @@
                     <div class="caption">
                         <h3>{{$posts->title}}</h3>
                         <p>{{$posts->description}}</p>
-                        <p><a href="{{url('/like_post',$posts->id)}}" class="btn btn-primary" role="button">Like</a> 
+                        
+                        <p>
+                            @if(Route::has('login'))
+                            @auth
+                           <a href="{{url('/like_post',$posts->id)}}" class="btn btn-primary" role="button">Like</a> 
+                           @endauth
+                           @endif
                             <a href="{{url('/blog',$posts->id)}}" class="btn btn-primary" role="button">Read more</a>
                         </p>
                     </div>

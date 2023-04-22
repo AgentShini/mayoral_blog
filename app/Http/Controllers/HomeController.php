@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\post;
+use App\Models\comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -26,13 +27,8 @@ class HomeController extends Controller
         return view('home.index',compact('name','post','popular'));
     }
     public function blogs(){
-        if(Auth::id()){
-            $name = Auth::user()->name;
-            $post = post::paginate(5);
-        }else{
-            return redirect('/register');
-           }
-        return view('home.blogs',compact('name','post'));
+            $post = post::paginate(3);
+        return view('home.blogs',compact('post'));
     }
     public function search(Request $req){
         $search = $req->search;
@@ -55,7 +51,9 @@ class HomeController extends Controller
     }
     public function blog($id){
     $post = post::find($id);
-     return view('home.blog',compact('post'));
+    $postid = $post->id;
+    $comment = comment::where('post_id','=',$postid)->get();
+     return view('home.blog',compact('post','comment'));
     }
    
        public function comment($id){
@@ -142,6 +140,22 @@ class HomeController extends Controller
             $post->save();
             return redirect()->back();
 
+        }else{
+            return redirect('/register');
+        }
+    }
+
+    public function add_comment($id,Request $req){
+        if(Auth::id()){
+            $post = post::find($id);
+            $comment = new comment;
+            $comment->commenter = $req->commenter;
+            $comment->comment = $req->comment;
+            $comment->post_id = $post->id;
+            $post->comment+=1;
+            $post->save();
+            $comment->save();
+            return redirect()->back();
         }else{
             return redirect('/register');
         }
