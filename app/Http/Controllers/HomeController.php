@@ -57,9 +57,7 @@ class HomeController extends Controller
     $post = post::find($id);
      return view('home.blog',compact('post'));
     }
-    public function like($id){
-        return ("POST LIKED");
-       }
+   
        public function comment($id){
         return view('home.comment_post');
        }
@@ -136,5 +134,16 @@ class HomeController extends Controller
         }else{
             return redirect('/register');
            }
+    }
+    public function like($id){
+        if(Auth::id()){
+            $post = post::find($id);
+            $post->likes+=1;
+            $post->save();
+            return redirect()->back();
+
+        }else{
+            return redirect('/register');
+        }
     }
 }
