@@ -97,17 +97,6 @@
         <div class="container">
             <div class="row">
 
-                <div class="jumbotron jumbotron-fluid aboutPost">
-                    <div class="jumbotron ">
-                        <h6>BLOG</h6>
-                        <h2>Read our blog</h2>
-                        <p>We provide a platform for thousands of people to exchange ideas and to 
-                            expand our understanding of data science. While we allow
-                             authors to publish articles,
-                              we do not endorse each author’s contribution.</p>
-                        <a class="btn btn-primary btn-lg" href="{{url('/blogs')}}" role="button">Learn more</a>
-                      </div>
-                </div>
 
             </div>
         </div>
@@ -120,10 +109,11 @@
                         <div class="jumbotron jumbotron-fluid aboutPost aboutPostLeft">
                             <div class="jumbotron ">
                                 <h6>DASHBOARD</h6>
-                                <h2>Discover</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto repellendus ipsam eos magni aut, quos labore nemo unde veniam tenetur! Deserunt sint similique labore ipsum pariatur possimus. Nam, nesciunt asperiores?
-                                Quod quisquam tenetur cumque explicabo quaerat vitae, iure minus libero? Suscipit temporibus nostrum earum eum perspiciatis nemo illo quidem maxime assumenda dicta dolores dolorem vel accusantium, voluptas rem beatae nihil!
-                                Atque et quam, voluptates assumenda beatae, expedita nobis qui fuga laborum nihil nesciunt obcaecati quibusdam sunt rerum aliquam? Ratione unde hic explicabo assumenda accusamus itaque voluptate, recusandae sed ab expedita.</p>
+                                <h2>Manage</h2>
+                                <p>We provide a platform for thousands of people to exchange ideas and to 
+                                    expand our understanding of data science. While we allow
+                                     authors to publish articles,
+                                      we do not endorse each author’s contribution.</p>
                                 <a class="btn btn-primary btn-lg" href="{{url('/dashboard')}}" role="button">Learn more</a>
                               </div>
                         </div>
@@ -134,12 +124,13 @@
                     <div class="row">
                         <div class="jumbotron jumbotron-fluid aboutPost aboutPostRight">
                             <div class="jumbotron ">
-                                <h6>CONTACTS</h6>
-                                <h2>Contact us</h2>
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga illo voluptatum autem quibusdam maiores, inventore quidem asperiores non, quas ab vel accusamus atque quo sequi similique iusto iste. Fugiat, doloribus.
-                                Quis autem nihil, sapiente voluptate explicabo ratione, inventore omnis quae tempora voluptatibus, aliquid delectus! Dignissimos, quod nesciunt illo libero quisquam iusto architecto voluptatum at nam id, totam, voluptas quas eos.
-                                Quia, laboriosam eveniet, ducimus fugiat numquam illum, libero minus saepe et exercitationem veritatis veniam quasi quam deserunt facere velit cum iure qui? Asperiores corrupti doloremque quod minima harum illo. Eligendi.</p>
-                                <a class="btn btn-primary btn-lg" href="{{url('/contact')}}" role="button">Learn more</a>
+                                <h6>BLOGS</h6>
+                                <h2>Discover</h2>
+                                <p>We provide a platform for thousands of people to exchange ideas and to 
+                                    expand our understanding of data science. While we allow
+                                     authors to publish articles,
+                                      we do not endorse each author’s contribution.</p>
+                                <a class="btn btn-primary btn-lg" href="{{url('/blogs')}}" role="button">Learn more</a>
                               </div>
                         </div>
                     </div>

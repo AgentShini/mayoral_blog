@@ -33,7 +33,6 @@
                         <li role="presentation" class="active"><a href="{{url('/index')}}">Home</a></li>
                         <li role="presentation"><a href="{{url('/blogs')}}">Blog</a></li>
                         <li role="presentation"><a href="{{url('/dashboard')}}">Dashboard</a></li>
-                        <li role="presentation"><a href="{{url('/contact')}}">Contacts</a></li>
                         @else
                         <li role="presentation" class="active"><a href="{{url('/index')}}">Home</a></li>
                         <li role="presentation"><a href="{{url('/blogs')}}">Blog</a></li>
