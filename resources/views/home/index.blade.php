@@ -69,8 +69,23 @@
                     </div>
 
                 </div></div> -->
+                @foreach($post as $post)
+                <div class="col-sm-6 col-md-4">     <div class="thumbnail">
 
-               @include('home.content')
+                    <img src="/product{{$post->image}}" alt="Title">
+                
+                    <div class="caption">
+                        <h3>{{$post->title}}</h3>
+                        <p>{{$post->description}}</p>
+                        <p><a href="{{url('/like_post',$post->id)}}" class="btn btn-primary" role="button">Like</a> 
+                            <a href="{{url('/blog',$post->id)}}" class="btn btn-primary" role="button">Read more</a>
+                        </p>
+                    </div>
+                
+                </div></div>
+
+                @endforeach
+
 
                
 
@@ -148,32 +163,20 @@
                         <tr>
                             <th></th>
                             <th>Title</th>
-                            <th class="text-center">Rating</th>
+                            <th class="text-center">Likes</th>
                         </tr>
                     </thead>
 
                     <tbody>
+                        @foreach($post as $post)
                         <tr>
                             <td class="col-lg-1 col-md-1 col-xs-2">
-                                <img class="img-responsive" src="{{asset('home/assets/img/eclass.png')}}" alt="Title">
+                                <img class="img-responsive" src="/product/{{$post->image}}')}}" alt="Title">
                             </td>
-                            <td class="vert-align"><a href="{{url('/blog/1')}}">1</a></td>
-                            <td class="text-center vert-align"><span class="badge">10.0</span></td>
+                            <td class="vert-align"><a href="{{url('/blog',$post->id)}}">{{$post->title}}</a></td>
+                            <td class="text-center vert-align"><span class="badge">{{$post->likes}}</span></td>
                         </tr>  
-                        <tr>
-                            <td class="col-lg-1 col-md-1 col-xs-2">
-                                <img class="img-responsive" src="{{asset('home/assets/img/eclass.png')}}" alt="Title">
-                            </td>
-                            <td class="vert-align"><a href="{{url('/blog/2')}}">2</a></td>
-                            <td class="text-center vert-align"><span class="badge">10.0</span></td>
-                        </tr> 
-                        <tr>
-                            <td class="col-lg-1 col-md-1 col-xs-2">
-                                <img class="img-responsive" src="{{asset('home/assets/img/eclass.png')}}" alt="Title">
-                            </td>
-                            <td class="vert-align"><a href="{{url('/blog/3')}}">3</a></td>
-                            <td class="text-center vert-align"><span class="badge">8.0</span></td>
-                        </tr>  
+                        @endforeach
                     </tbody>
         
         
