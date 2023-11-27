@@ -1,7 +1,7 @@
 <div>
     <footer>
         <div class="container-fluid">
-            <p class = "text-center"><a href="https://github.com/Mayoral13">Check Out My GitHub</a></p>
+            <p class = "text-center"><a href="https://github.com/AgentShini">Check Out My GitHub</a></p>
         </div>
     </footer>
 
